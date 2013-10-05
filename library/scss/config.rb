@@ -26,5 +26,8 @@ output_style = :expanded
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false
 
+# 5. Require Susy for Gid
+require "susy"
+
 # don't touch this
 preferred_syntax = :scss
