@@ -1,22 +1,14 @@
+// Variables
+
+
+// Mixins
+
+
+
 // Import Styles
 // Compiles to /library/css/style.css
 
 @import "normalize";
-@import "mixins";
-@import "susy";
-@import "layout";
+@import "grid";
 @import "base";
 
-
-@media only screen and (min-width: 768px) {	
-	@import "768up";
-} 
-@media only screen and (min-width: 979px) {
-	@import "979up";
-} 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
-       only screen and (min--moz-device-pixel-ratio: 1.5),
-       only screen and (min-device-pixel-ratio: 1.5) {
-
-	@import "2x";
-} 
