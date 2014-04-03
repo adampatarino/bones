@@ -26,6 +26,20 @@ local.properties
 nbproject/
 
 ############
+## NPM
+############
+
+.grunt
+node_modules
+node_modules/
+node_modules/*
+node_modules/**/*
+*node_modules*
+**/node_modules/**
+
+
+
+############
 ## OSes
 ############
 
@@ -53,3 +67,4 @@ temp/
 .Trashes
 
 .svn
+
