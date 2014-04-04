@@ -1,7 +1,31 @@
 // Variables
 
+  // Breakpoints
+    $bp-desktop :   980px;
+    $bp-tablet  :   768px;
+    $bp-mobile  :   767px;
 
 // Mixins
+  // Breakpoint Mixin
+  @mixin bp($point) {
+    @if $point == desktop {
+      @media (min-width: $bp-desktop) { @content; }
+    }
+    @else if $point == min-tablet {
+      @media (min-width: $bp-tablet) { @content; }
+    }
+    @else if $point == tablet {
+      @media (max-width: $bp-tablet) { @content; }
+    }
+    @else if $point == mobile {
+      @media (max-width: $bp-mobile)  { @content; }
+    }
+    @else if $point == retina {
+      @media  (min-device-pixel-ratio: 1.5),
+              (-webkit-min-device-pixel-ratio: 1.5)
+              { @content; }
+    }
+  }
 
 
 
