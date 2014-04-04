@@ -48,7 +48,31 @@ module.exports = function(grunt) {
                   'library/public/application.min.css': ['library/css/theme.css']
                 }
             }
+        },
+
+        gitcommit: {
+            deployment: {
+              options: {
+                message: "Grunt: Commit production assets for deployment."
+              },
+              files: {
+                  src:['library/public/*']
+              }
+            }
+        },
+
+        dploy: {                                    // Task
+            stage: {                                // Target
+                host: "ftp.myserver.com"            // Your FTP host
+                user: "user"                        // Your FTP user
+                pass: "secret-password"             // Your FTP secret-password
+                path: {
+                    local: "/",               // The local folder that you want to upload
+                    remote: "public_html/website/wp-content/themes/themename/"          // Where the files from the local file will be uploaded at in your remote server
+                }
+            }
         }
+
 
 
 
@@ -58,7 +82,7 @@ module.exports = function(grunt) {
     // Tasks
     grunt.registerTask('process', ['sass', 'autoprefixer']);
 
-    grunt.registerTask('build', ['uglify', 'cssmin']);
+    grunt.registerTask('deploy', ['uglify', 'cssmin', 'gitcommit', 'dploy']);
 
 
 
