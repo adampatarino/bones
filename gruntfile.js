@@ -11,20 +11,20 @@ module.exports = function(grunt) {
         sass: {
             dist:  {
                 files:  {
-                    'lib/css/theme.css': 'lib/scss/theme.scss'
+                    'library/css/theme.css': 'library/scss/theme.scss'
                 }
             }
         },
 
         autoprefixer: {
             theme: {
-                src: 'lib/css/theme.css'
+                src: 'library/css/theme.css'
             }
         },
 
         watch: {
             styles: {
-                files: ['lib/scss/*.scss'],
+                files: ['library/scss/*.scss'],
                 tasks: ['process'],
                 options: {
                   livereload: true,
@@ -61,14 +61,14 @@ module.exports = function(grunt) {
             }
         },
 
-        dploy: {                                    // Task
-            stage: {                                // Target
-                host: "ftp.myserver.com"            // Your FTP host
-                user: "user"                        // Your FTP user
-                pass: "secret-password"             // Your FTP secret-password
+        dploy: {
+            stage: {
+                host: "ftp.myserver.com",
+                user: "user",
+                pass: "secret-password",
                 path: {
-                    local: "/",               // The local folder that you want to upload
-                    remote: "public_html/website/wp-content/themes/themename/"          // Where the files from the local file will be uploaded at in your remote server
+                    local: "/",
+                    remote: "public_html/website/wp-content/themes/themename/"
                 }
             }
         }

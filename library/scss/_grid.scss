@@ -1,92 +1,37 @@
-/* --------------------------------
-              GRID
--------------------------------- */        
+@include bp(min-tablet) {
+  .onecol    { width: 5.801104972%;  }       /* 4.85%;  } /* grid_1  */
+  .twocol    { width: 14.364640883%; }       /* 13.45%; } /* grid_2  */
+  .threecol  { width: 22.928176794%; }       /* 22.05%; } /* grid_3  */
+  .fourcol   { width: 31.491712705%; }       /* 30.75%; } /* grid_4  */
+  .fivecol   { width: 40.055248616%; }       /* 39.45%; } /* grid_5  */
+  .sixcol    { width: 48.618784527%; }       /* 48%;    } /* grid_6  */
+  .sevencol  { width: 57.182320438000005%; } /* 56.75%; } /* grid_7  */
+  .eightcol  { width: 65.74585634900001%; }  /* 65.4%;  } /* grid_8  */
+  .ninecol   { width: 74.30939226%; }        /* 74.05%; } /* grid_9  */
+  .tencol    { width: 82.87292817100001%; }  /* 82.7%;  } /* grid_10 */
+  .elevencol { width: 91.436464082%; }       /* 91.35%; } /* grid_11 */
+  .twelvecol { width: 99.999999993%; }       /* 100%;   } /* grid_12 */
 
-// Susy Imports
-@import "susy/support";
-@import "susy/units";
+  // layout & column defaults
+  .onecol, .twocol, .threecol, .fourcol, .fivecol, .sixcol, .sevencol, .eightcol, .ninecol, .tencol, .elevencol, .twelvecol {
+    position: relative;
+    float: left;
+    margin-left: 2.762430939%;
+  }
 
-// permanent
-@import "susy/settings";
-@import "susy/functions";
-@import "susy/grid";
-@import "susy/isolation";
-@import "susy/padding";
-@import "susy/margin";
-@import "susy/media";
-@import "susy/background";
+  .first {
+    margin-left: 0;
+  }
 
-/* --------------------------------
-          SUSY CONFIG
--------------------------------- */ 
+  .last {
+    float: right;
+  }
+}
 
-// Susy Setup
-$total-columns: 12;
-$column-width: 50px;
-$gutter-width: 30px;
-$grid-padding: 10px;
-$continer-style : fluid;
-$container-width: 980px; // Subtracting padding, the page width is 980px
-
-
-// Container
-.wrap { 
-  @include container;
+.wrap {
   width: 96%;
-}
-
-// Mobile Grid Columns span 100%
-.onecol,
-.twocol,
-.threecol,  
-.fourcol,
-.fivecol,
-.sixcol,
-.sevencol,
-.eightcol,
-.ninecol,
-.tencol,
-.elevencol,
-.twelvecol {
-  @include span-columns($total-columns, $total-columns);
-}
-
-// At tablet grid is implemented
-@include breakpoint(tablet) {
-  .onecol     {@include span-columns(1,  $total-columns);}
-  .twocol     {@include span-columns(2,  $total-columns);}
-  .threecol   {@include span-columns(3,  $total-columns);}
-  .fourcol    {@include span-columns(4,  $total-columns);}
-  .fivecol    {@include span-columns(5,  $total-columns);}
-  .sixcol     {@include span-columns(6,  $total-columns);}
-  .sevencol   {@include span-columns(7,  $total-columns);}
-  .eightcol   {@include span-columns(8,  $total-columns);}
-  .ninecol    {@include span-columns(9,  $total-columns);}
-  .tencol     {@include span-columns(10, $total-columns);}
-  .elevencol  {@include span-columns(11, $total-columns);}
-  .twelvecol  {@include span-columns(12, $total-columns);}
-
-  .onecol.omega     {@include span-columns(1 omega,  $total-columns);}
-  .twocol.omega     {@include span-columns(2 omega,  $total-columns);}
-  .threecol.omega   {@include span-columns(3 omega,  $total-columns);}
-  .fourcol.omega    {@include span-columns(4 omega,  $total-columns);}
-  .fivecol.omega    {@include span-columns(5 omega,  $total-columns);}
-  .sixcol.omega     {@include span-columns(6 omega,  $total-columns);}
-  .sevencol.omega   {@include span-columns(7 omega,  $total-columns);}
-  .eightcol.omega   {@include span-columns(8 omega,  $total-columns);}
-  .ninecol.omega    {@include span-columns(9 omega,  $total-columns);}
-  .tencol.omega     {@include span-columns(10 omega, $total-columns);}
-  .elevencol.omega  {@include span-columns(11 omega, $total-columns);}
-  .twelvecol.omega  {@include span-columns(12 omega, $total-columns);}
-}
-
-
-.first {
-  margin-left: 0;
-}
-
-.last {
-  margin-right: 0;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .clearfix {
