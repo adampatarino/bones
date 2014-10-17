@@ -3,7 +3,7 @@
 require_once( 'config/bones.php' ); // if you remove this, bones will break
 // require_once( 'library/admin.php' );
 // require_once( 'config/custom-post-type.php' );
-// require_once( 'library/translation/translation.php' );
+// require_once( 'config/custom-widgets.php' );
 
 /************* THUMBNAIL SIZE OPTIONS *************/
 
@@ -42,13 +42,12 @@ function enqueue_theme_assets() {
 
   // Styles
   wp_register_style( 'theme', get_stylesheet_directory_uri().'/library/css/theme.css', '', '1.0.0', 'all' );
-  wp_register_style( 'application-css', get_stylesheet_directory_uri().'/library/css/application.min.css', '', '1.0.0', 'all' );
+  wp_register_style( 'application-css', get_stylesheet_directory_uri().'/library/public/application.min.css', '', '1.0.0', 'all' );
 
   // Scripts
   wp_register_script( 'modernizr', get_stylesheet_directory_uri().'/library/js/libs/modernizr.custom.min.js', '', '1.0.0', false );
   wp_register_script( 'mainjs', get_stylesheet_directory_uri().'/library/js/scripts.js', ['modernizr', 'jquery'], '1.0.0', true );
-  wp_register_script( 'livereload', 'http://localhost:35729/livereload.js', '', '1.0.0', true );
-  wp_register_script( 'application-js', get_stylesheet_directory_uri().'/library/js/application.min.js', ['modernizr', 'jquery'], '1.0.0', true );
+  wp_register_script( 'application-js', get_stylesheet_directory_uri().'/library/public/application.min.js', ['modernizr', 'jquery'], '1.0.0', true );
 
 
   // Enqueue based on env

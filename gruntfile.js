@@ -22,12 +22,36 @@ module.exports = function(grunt) {
             }
         },
 
+        cmq: {
+            options: {
+                log: false
+            },
+            your_target: {
+                files: {
+                    'library/css/theme.css': ['library/css/theme.css']
+                }
+            }
+        },
+
         watch: {
             styles: {
                 files: ['library/scss/*.scss'],
                 tasks: ['process'],
                 options: {
-                  livereload: true,
+                  // livereload: true,
+                }
+            }
+        },
+
+        browserSync: {
+          dev: {
+                bsFiles: {
+                  src : 'library/css/theme.css'
+                },
+                options: {
+                    watchTask: true,
+                    // server: { baseDir: "./" }
+                    proxy: "trb.dev"
                 }
             }
         },
@@ -50,6 +74,18 @@ module.exports = function(grunt) {
             }
         },
 
+        imagemin: {                          
+            images: {                        
+              options: {                     
+                optimizationLevel: 3,
+                use: [mozjpeg()]
+              },
+              files: {                       
+                'library/images/': 'library/images/*'
+              }
+            }
+        },
+
         gitcommit: {
             deployment: {
               options: {
@@ -58,18 +94,6 @@ module.exports = function(grunt) {
               files: {
                   src:['library/public/*']
               }
-            }
-        },
-
-        dploy: {
-            stage: {
-                host: "ftp.myserver.com",
-                user: "user",
-                pass: "secret-password",
-                path: {
-                    local: "/",
-                    remote: "public_html/website/wp-content/themes/themename/"
-                }
             }
         }
 
@@ -80,9 +104,12 @@ module.exports = function(grunt) {
 
 
     // Tasks
-    grunt.registerTask('process', ['sass', 'autoprefixer']);
+    
+    grunt.registerTask('default', ['browserSync', 'watch']);
 
-    grunt.registerTask('deploy', ['uglify', 'cssmin', 'gitcommit', 'dploy']);
+    grunt.registerTask('process', ['sass', 'autoprefixer', 'cmq']);
+
+    grunt.registerTask('deploy', ['uglify', 'cssmin', 'newer:imagemin:images', 'gitcommit']);
 
 
 
